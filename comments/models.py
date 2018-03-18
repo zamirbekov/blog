@@ -6,7 +6,7 @@ from django.utils import timezone
 from articles.models import Article
 
 class Comment(models.Model):
-    created = models.DateTimeField(verbose_name=('Дата создания'), default=timezone.now())
+    created = models.DateTimeField(verbose_name=('Дата создания'))
     article_id = models.ForeignKey(Article, on_delete=models.CASCADE, verbose_name=('Статья'))
     user_name = models.CharField(max_length=120, verbose_name=('Имя комментатора'))
     email = models.EmailField(verbose_name=('Почта'))
@@ -19,3 +19,9 @@ class Comment(models.Model):
         ordering = ['-created']
         verbose_name = u'Комментарий'
         verbose_name_plural = u'Комментарии'
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.created = timezone.now()
+        self.modified = timezone.now()
+        return super(Comment, self).save(*args, **kwargs)
