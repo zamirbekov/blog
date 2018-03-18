@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>{% block title %}{% endblock title %}</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+
+	<!-- Font -->
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+	<!-- Stylesheets -->
+
+	<link href="{% static 'articles/common-css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+
+	<link href="{% static 'articles/common-css/swiper.css' %}" rel="stylesheet" type="text/css" />
+
+	<link href="{% static 'articles/common-css/ionicons.css' %}" rel="stylesheet" type="text/css" />
+
+
+	<link href="{% static 'articles/css/styles.css' %}" rel="stylesheet" type="text/css" />
+
+	<link href="{% static 'articles/css/responsive.css' %}" rel="stylesheet" type="text/css" />
+	{% block css %}{% endblock %}
+</head>
+<body >
+
+	<header>
+		<div class="container-fluid position-relative no-side-padding">
+
+			<a href="{%url 'index'%}" class="logo"><img src="{% static 'articles/images/logo.png' %}" alt="Logo Image"></a>
+
+			<div class="menu-nav-icon" data-nav-menu="#main-menu"><i class="ion-navicon"></i></div>
+
+			<ul class="main-menu visible-on-click" id="main-menu">
+				<li><a href="{%url 'index'%}">Главная</a></li>
+				<li><a href="#">Категории</a></li>
+				<li><a href="#">Авторы</a></li>
+			</ul><!-- main-menu -->
+
+			<div class="src-area">
+				<form>
+					<button class="src-btn" type="submit"><i class="ion-ios-search-strong"></i></button>
+					<input class="src-input" type="text" placeholder="Поиск">
+				</form>
+			</div>
+
+		</div><!-- conatiner -->
+	</header>
+{% block contents %}{% endblock contents %}
+
+	<footer>
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-4 col-md-6">
+					<div class="footer-section">
+
+						<a class="logo" href="{%url 'index'%}"><img src="{% static 'articles/images/logo.png' %}" alt="Logo Image"></a>
+						<p class="copyright">Блог @ 2018. Все права защищены.</p>
+						<p class="copyright">Разработан К. З. </p>
+						<ul class="icons">
+							<li><a href="#"><i class="ion-social-facebook-outline"></i></a></li>
+							<li><a href="#"><i class="ion-social-twitter-outline"></i></a></li>
+							<li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+							<li><a href="#"><i class="ion-social-vimeo-outline"></i></a></li>
+							<li><a href="#"><i class="ion-social-pinterest-outline"></i></a></li>
+						</ul>
+
+					</div><!-- footer-section -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+				<div class="col-lg-4 col-md-6">
+						<div class="footer-section">
+						<h4 class="title"><b>КАТЕГОРИИ</b></h4>
+						<ul>
+							<li><a href="#">ТЕХНОЛОГИИ</a></li>
+							<li><a href="#">РАЗРАБОТКА</a></li>
+							<li><a href="#">АДМИНИСТРИРОВАНИЕ</a></li>
+						</ul>
+						<ul>
+							<li><a href="#">ГАДЖЕТЫ</a></li>
+							<li><a href="#">РАЗНОЕ</a></li>
+							<li><a href="#">IT-БИЗНЕС</a></li>
+						</ul>
+					</div><!-- footer-section -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+				<div class="col-lg-4 col-md-6">
+					<div class="footer-section">
+
+						<h4 class="title"><b>ПОДПИСКА</b></h4>
+						<div class="input-area">
+							<form>
+								<input class="email-input" type="text" placeholder="Введите вашу почту">
+								<button class="submit-btn" type="submit"><i class="icon ion-ios-email-outline"></i></button>
+							</form>
+						</div>
+
+					</div><!-- footer-section -->
+				</div><!-- col-lg-4 col-md-6 -->
+
+			</div><!-- row -->
+		</div><!-- container -->
+	</footer>
+
+
+	<!-- SCIPTS -->
+
+	<script src="{% static 'articles/common-js/jquery-3.1.1.min.js' %}"></script>
+
+	<script src="{% static 'articles/common-js/tether.min.js' %}"></script>
+
+	<script src="{% static 'articles/common-js/bootstrap.js' %}"></script>
+
+	<script src="{% static 'articles/common-js/swiper.js' %}"></script>
+
+	<script src="{% static 'articles/common-js/scripts.js' %}"></script>
+
+</body>
+</html>

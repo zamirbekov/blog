@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'articles',
     'authors',
+    'categories',
+    'comments',
 ]
 
 MIDDLEWARE = [
@@ -88,6 +90,9 @@ DATABASES = {
         'PASSWORD': 'chichorito',
         'HOST': '0.0.0.0',
         'PORT': 3306,
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 
@@ -129,3 +134,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'public/static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+MEDIA_URL = STATIC_URL + "media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, *MEDIA_URL.strip("/").split("/"))

@@ -6,6 +6,7 @@ from articles import views as articles_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', articles_views.index, name='index'),
+    path('article/<int:id>/', articles_views.single_article, name='single_article'),
 ]
 
 if settings.DEBUG:
