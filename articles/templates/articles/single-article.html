@@ -23,7 +23,8 @@
 
 						<div class="post-top-area">
 
-							<h5 class="pre-title">{{article.category}}
+							<h5 class="pre-title">
+								{{ article.category.all|join:', '|upper }}
 							</h5>
 
 							<h3 class="title"><b>{{ article.title }}</b></h3>

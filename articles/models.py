@@ -1,13 +1,12 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 from django.db import models
-from django.utils import timezone
 
 from categories.models import Category
 from authors.models import Author
 
 class Article(models.Model):
-    created = models.DateTimeField(verbose_name=('Дата создания'))
+    created = models.DateTimeField(verbose_name=('Дата создания'), auto_now_add=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE, verbose_name=('Автор'))
     title = models.CharField(max_length=120, verbose_name=('Название статьи'))
     photo = models.ImageField(verbose_name=('Изображение'), upload_to='images/articles')
@@ -24,12 +23,7 @@ class Article(models.Model):
 
     @classmethod
     def get_last(cls, length):
-        articles = cls.objects.order_by('-created')[:length]
         articles = cls.objects.select_related().order_by('-created')[:length]
         return articles
 
-    def save(self, *args, **kwargs):
-        if not self.id:
-            self.created = timezone.now()
-        self.modified = timezone.now()
-        return super(Article, self).save(*args, **kwargs)
+

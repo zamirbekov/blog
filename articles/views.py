@@ -1,5 +1,4 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
 from .models import Article
 
@@ -8,7 +7,7 @@ def index(request):
     return render(request, 'articles/index.html', locals())
 
 def single_article(request, id):
-    article = Article.objects.get(id=id)
+    article = Article.objects.select_related('author').get(id=id)
     articles = Article.get_last(3)
     return render(request, 'articles/single-article.html', locals())
 
