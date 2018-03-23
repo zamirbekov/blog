@@ -6,7 +6,7 @@ from articles.models import Article
 
 class Comment(models.Model):
     created = models.DateTimeField(verbose_name=('Дата создания'), auto_now_add=True)
-    article_id = models.ForeignKey(Article, on_delete=models.CASCADE, verbose_name=('Статья'))
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, verbose_name=('Статья'))
     user_name = models.CharField(max_length=120, verbose_name=('Имя комментатора'))
     email = models.EmailField(verbose_name=('Почта'))
     text = models.TextField(verbose_name=('Текст комментария'))
