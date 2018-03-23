@@ -13,3 +13,8 @@ class Category(models.Model):
         ordering = ['-title']
         verbose_name = u'Категория'
         verbose_name_plural = u'Категории'
+
+    @classmethod
+    def get_all(cls):
+        categories = cls.objects.select_related().order_by('-title')
+        return categories

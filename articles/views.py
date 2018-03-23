@@ -1,11 +1,13 @@
 from django.shortcuts import render
 
 from .models import Article
+from categories.models import Category
 from comments.models import Comment
 from comments.forms import CommentForm
 
 def index(request):
     articles = Article.get_last(9)
+    categories = Category.get_all()
     return render(request, 'articles/index.html', locals())
 
 def single_article(request, id):
