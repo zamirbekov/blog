@@ -42,9 +42,9 @@
 			</ul><!-- main-menu -->
 
 			<div class="src-area">
-				<form>
+				<form method="GET" action="{% url 'search_results' %}">
 					<button class="src-btn" type="submit"><i class="ion-ios-search-strong"></i></button>
-					<input class="src-input" type="text" placeholder="Поиск">
+          {{ search_form.title }}
 				</form>
 			</div>
 
@@ -77,15 +77,11 @@
 						<div class="footer-section">
 						<h4 class="title"><b>КАТЕГОРИИ</b></h4>
 						<ul>
-							<li><a href="#">ТЕХНОЛОГИИ</a></li>
-							<li><a href="#">РАЗРАБОТКА</a></li>
-							<li><a href="#">АДМИНИСТРИРОВАНИЕ</a></li>
+              {% for category in categories %}
+							<li><a href="#">{{ category.title|upper}}</a></li>
+              {% endfor %}
 						</ul>
-						<ul>
-							<li><a href="#">ГАДЖЕТЫ</a></li>
-							<li><a href="#">РАЗНОЕ</a></li>
-							<li><a href="#">IT-БИЗНЕС</a></li>
-						</ul>
+
 					</div><!-- footer-section -->
 				</div><!-- col-lg-4 col-md-6 -->
 

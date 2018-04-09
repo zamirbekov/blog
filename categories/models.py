@@ -16,5 +16,5 @@ class Category(models.Model):
 
     @classmethod
     def get_all(cls):
-        categories = cls.objects.select_related().order_by('-title')
+        categories = cls.objects.select_related().order_by('title')
         return categories

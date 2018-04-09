@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Результаты поиска{% endblock title %}
+
+{% block contents %}
+  {% if query %}
+  	<section class="blog-area section">
+		<div class="container">
+
+			<div class="row">
+			  {% for q in query %}
+				<div class="col-lg-4 col-md-6">
+					<div class="card h-100">
+						<div class="single-post post-style-1">
+							<div class="blog-image"><a href="/article/{{q.id}}/"> <img src="/static/media/{{ q.photo }}" alt="Blog Image"></a></div>
+
+							<a class="avatar" href="#"><img src="/static/media/{{ q.author.photo }}/" alt="Profile Image"></a>
+
+							<div class="blog-info">
+
+								<h4 class="title"><a href="/article/{{q.id}}/"><b>{{ q.title}}</b></a></h4>
+
+								<ul class="post-footer">
+									<li><a href="#"><i class="ion-heart"></i>57</a></li>
+									<li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
+									<li><a href="#"><i class="ion-eye"></i>138</a></li>
+								</ul>
+							</div><!-- blog-info -->
+						</div><!-- single-post -->
+					</div><!-- card -->
+				</div><!-- col-lg-4 col-md-6 -->
+{% endfor %}
+{% else %}
+  <p>ничего не найдено</p>
+{% endif %}
+{% endblock contents %}

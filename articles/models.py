@@ -26,4 +26,8 @@ class Article(models.Model):
         articles = cls.objects.select_related().order_by('-created')[:length]
         return articles
 
+    # def search_by_title(self, a):
+    #     return Article.objects.filter(title__icontains=a)
+
+
 

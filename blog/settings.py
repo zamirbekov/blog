@@ -72,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'context_processors.search_results.search'
             ],
         },
     },
@@ -87,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'blog',
         'USER': 'root',
-        'PASSWORD': 'chichorito',
+        'PASSWORD': 'mali1995',
         'HOST': '0.0.0.0',
         'PORT': 3306,
         'OPTIONS': {
