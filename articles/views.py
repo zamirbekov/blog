@@ -24,3 +24,6 @@ def search_results(request):
             title = search_form.cleaned_data['title']
             query = Article.objects.filter(title__icontains=title)
     return render(request, 'articles/search_results.html', locals())
+
+def category(request, title):
+    
